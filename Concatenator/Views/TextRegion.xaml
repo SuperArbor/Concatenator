@@ -1,0 +1,46 @@
+﻿<Window x:Class="Concatenator.Views.TextRegion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Concatenator.Views"
+             mc:Ignorable="d" 
+             Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <ScrollViewer DockPanel.Dock="Top">
+                    <TextBox FontSize="15" FontFamily="Microsoft YaHei" DockPanel.Dock="Top" Margin="5,5,5,5" 
+                             TextWrapping="Wrap" AcceptsReturn="True"
+                    Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="2 2 2 2">
+                <Button DockPanel.Dock="Left" Background="LightGreen" Foreground="Black"
+                        FontSize="16" FontFamily="Microsoft YaHei"
+                        Content="Do the thing" Command="{Binding Concatenate}"/>
+            </Grid>
+            <Grid Grid.Column="1"  Margin="2 2 2 2">
+                <Button DockPanel.Dock="Left" Background="AliceBlue" Foreground="Black"
+                        FontSize="16" FontFamily="Microsoft YaHei"
+                        Content="Copy" Command="{Binding Copy}"/>
+            </Grid>
+            <Grid Grid.Column="2"  Margin="2 2 2 2">
+                <Button Background="OrangeRed" Foreground="White" DockPanel.Dock="Left"
+                        FontSize="16" FontFamily="Microsoft YaHei"
+                        Content="Clear" Command="{Binding Clear}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
